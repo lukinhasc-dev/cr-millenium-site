@@ -173,7 +173,7 @@ class ClientsCarousel {
     getSlidesToShow() {
         if (window.innerWidth <= 768) return 1;
         if (window.innerWidth <= 1024) return 2;
-        return 3;
+        return 4;
     }
 
     init() {
