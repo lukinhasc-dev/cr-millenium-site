@@ -66,54 +66,16 @@ body {
     left: 0;
     right: 0;
     z-index: 1000;
-    background: linear-gradient(135deg,
-            rgba(10, 10, 10, 0.95) 0%,
-            rgba(15, 10, 10, 0.95) 50%,
-            rgba(10, 10, 10, 0.95) 100%);
-    background-size: 200% 200%;
-    animation: gradientShift 15s ease infinite;
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid var(--color-border);
-    transition: var(--transition-smooth);
-    overflow: hidden;
-}
-
-.main-header::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg,
-            transparent,
-            rgba(220, 38, 38, 0.1),
-            transparent);
-    animation: shimmer 3s infinite;
-}
-
-.main-header::after {
-    content: '';
-    position: absolute;
-    bottom: -1px;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: linear-gradient(90deg,
-            transparent,
-            var(--color-primary),
-            transparent);
-    opacity: 0.5;
-    animation: borderGlow 2s ease-in-out infinite;
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(220, 38, 38, 0.2);
+    transition: all 0.3s ease;
 }
 
 .main-header.scrolled {
-    background: linear-gradient(135deg,
-            rgba(10, 10, 10, 0.98) 0%,
-            rgba(15, 10, 10, 0.98) 50%,
-            rgba(10, 10, 10, 0.98) 100%);
-    background-size: 200% 200%;
-    box-shadow: 0 4px 20px rgba(220, 38, 38, 0.1);
+    background: rgba(0, 0, 0, 0.98);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+    border-bottom: 1px solid rgba(220, 38, 38, 0.4);
 }
 
 .header-decorations {
@@ -620,7 +582,7 @@ body {
 /* === ENHANCED QUALITIES SECTION === */
 .qualities-section {
     padding: var(--spacing-xl) 0;
-    background: var(--color-bg-darker);
+    background: #000000;
     position: relative;
     overflow: hidden;
 }
@@ -628,14 +590,13 @@ body {
 .qualities-background {
     position: absolute;
     inset: 0;
-    background: radial-gradient(circle at 50% 50%, rgba(220, 38, 38, 0.05) 0%, transparent 70%);
+    background: transparent;
 }
 
 .qualities-overlay {
     position: absolute;
     inset: 0;
-    background:
-        repeating-linear-gradient(45deg, transparent, transparent 50px, rgba(220, 38, 38, 0.02) 50px, rgba(220, 38, 38, 0.02) 100px);
+    background: transparent;
 }
 
 .qualities-wrapper {
@@ -866,7 +827,39 @@ body {
 /* === SERVICES SECTION - ESTILO SOBRE NÓS === */
 .services-section {
     padding: var(--spacing-xl) 0;
-    background: var(--color-bg-dark);
+    position: relative;
+    overflow: hidden;
+}
+
+.services-background {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+
+.services-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+    z-index: 0;
+}
+
+.services-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    z-index: 1;
+}
+
+.services-section .container {
+    position: relative;
+    z-index: 2;
 }
 
 .service-block {
@@ -1992,26 +1985,42 @@ body {
     }
 
     .main-nav {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background: var(--color-bg-darker);
+        position: fixed;
+        top: 70px;
+        right: -100%;
+        width: 280px;
+        height: calc(100vh - 70px);
+        background: rgba(10, 10, 10, 0.98);
+        backdrop-filter: blur(10px);
+        border-left: 1px solid var(--color-border);
         flex-direction: column;
-        padding: var(--spacing-sm);
-        border-top: 1px solid var(--color-border);
-        display: none;
+        padding: var(--spacing-lg);
+        gap: var(--spacing-sm);
+        transition: right 0.3s ease-in-out;
+        z-index: 999;
+        overflow-y: auto;
     }
 
     .main-nav.active {
-        display: flex;
+        right: 0;
+    }
+
+    .nav-link {
+        padding: var(--spacing-sm) 0;
+        width: 100%;
+        font-size: 1.1rem;
     }
 
     .hero-title {
         font-size: 2.5rem;
     }
 
-    .hero-content {
+    .stats-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+
+    .highlights-grid {
         grid-template-columns: 1fr;
     }
 
@@ -2061,6 +2070,53 @@ body {
 
     .shipping-stats {
         grid-template-columns: 1fr;
+    }
+}
+
+/* === MOBILE PEQUENO (480px) === */
+@media (max-width: 480px) {
+    .container {
+        padding: 0 1rem;
+    }
+
+    .main-nav {
+        width: 100%;
+    }
+
+    .hero-content-centered .hero-title {
+        font-size: 2.2rem;
+    }
+
+    .clients-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .service-heading {
+        font-size: 2rem;
+    }
+}
+
+/* === EXTRA SMALL (360px e 320px) === */
+@media (max-width: 360px) {
+    .hero-content-centered .hero-title {
+        font-size: 1.8rem;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+    }
+
+    .logo-image {
+        height: 40px;
+    }
+
+    .service-badge {
+        font-size: 0.75rem;
+        padding: 0.4rem 0.8rem;
+    }
+
+    .client-card-inner {
+        height: 120px;
     }
 }
 

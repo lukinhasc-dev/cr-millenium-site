@@ -1,15 +1,15 @@
 ﻿// CR MILLENIUM - Advanced Interactive Features with Improved Carousel
 
 // === HEADER SCROLL EFFECT ===
-const header = document.getElementById('header');
+const header = document.getElementById('mainHeader');
 let lastScroll = 0;
 
 window.addEventListener('scroll', () => {
     const currentScroll = window.pageYOffset;
 
-    if (currentScroll > 100) {
+    if (currentScroll > 100 && header) {
         header.classList.add('scrolled');
-    } else {
+    } else if (header) {
         header.classList.remove('scrolled');
     }
 
@@ -45,7 +45,8 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         const target = document.querySelector(targetId);
 
         if (target) {
-            const headerHeight = document.getElementById('header').offsetHeight;
+            const headerEl = document.getElementById('mainHeader');
+            const headerHeight = headerEl ? headerEl.offsetHeight : 80;
             const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
 
             window.scrollTo({
