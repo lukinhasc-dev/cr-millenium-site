@@ -91,6 +91,16 @@ body {
     letter-spacing: 3px;
 }
 
+.logo-image {
+    height: 50px;
+    width: auto;
+    transition: var(--transition-smooth);
+}
+
+.logo-image:hover {
+    transform: scale(1.05);
+}
+
 .logo-highlight {
     color: var(--color-primary);
 }
@@ -461,6 +471,13 @@ body {
 .about-image-placeholder i {
     font-size: 5rem;
     color: var(--color-primary);
+}
+
+.about-image-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
 }
 
 /* === MISSION VISION VALUES SECTION === */
@@ -1175,7 +1192,7 @@ body {
     background: var(--color-bg-card);
     border: 1px solid var(--color-border);
     border-radius: 12px;
-    padding: var(--spacing-md);
+    padding: 0.75rem;
     height: 200px;
     display: flex;
     align-items: center;
@@ -1224,8 +1241,8 @@ body {
 }
 
 .client-card-inner img {
-    max-width: 85%;
-    max-height: 85%;
+    max-width: 100%;
+    max-height: 100%;
     width: auto;
     height: auto;
     object-fit: contain;
@@ -1820,6 +1837,19 @@ body {
 .hero-bg-image {
     position: absolute;
     inset: 0;
+    z-index: 0;
+}
+
+.hero-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
     z-index: 0;
 }
 
