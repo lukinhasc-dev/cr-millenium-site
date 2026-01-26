@@ -66,15 +66,93 @@ body {
     left: 0;
     right: 0;
     z-index: 1000;
-    background: rgba(10, 10, 10, 0.95);
+    background: linear-gradient(135deg,
+            rgba(10, 10, 10, 0.95) 0%,
+            rgba(15, 10, 10, 0.95) 50%,
+            rgba(10, 10, 10, 0.95) 100%);
+    background-size: 200% 200%;
+    animation: gradientShift 15s ease infinite;
     backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--color-border);
     transition: var(--transition-smooth);
+    overflow: hidden;
+}
+
+.main-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(220, 38, 38, 0.1),
+            transparent);
+    animation: shimmer 3s infinite;
+}
+
+.main-header::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg,
+            transparent,
+            var(--color-primary),
+            transparent);
+    opacity: 0.5;
+    animation: borderGlow 2s ease-in-out infinite;
 }
 
 .main-header.scrolled {
-    background: rgba(10, 10, 10, 0.98);
+    background: linear-gradient(135deg,
+            rgba(10, 10, 10, 0.98) 0%,
+            rgba(15, 10, 10, 0.98) 50%,
+            rgba(10, 10, 10, 0.98) 100%);
+    background-size: 200% 200%;
     box-shadow: 0 4px 20px rgba(220, 38, 38, 0.1);
+}
+
+.header-decorations {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.decoration-circle {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: radial-gradient(circle,
+            rgba(220, 38, 38, 0.15) 0%,
+            rgba(220, 38, 38, 0.05) 50%,
+            transparent 100%);
+    animation: floatCircle var(--duration, 20s) ease-in-out infinite;
+    animation-delay: var(--delay, 0s);
+}
+
+.decoration-circle:nth-child(1) {
+    top: -50px;
+    left: 10%;
+}
+
+.decoration-circle:nth-child(2) {
+    top: -30px;
+    right: 15%;
+    width: 80px;
+    height: 80px;
+}
+
+.decoration-circle:nth-child(3) {
+    top: -40px;
+    left: 50%;
+    width: 120px;
+    height: 120px;
 }
 
 .header-content {
@@ -483,7 +561,7 @@ body {
 /* === MISSION VISION VALUES SECTION === */
 .mvv-section {
     padding: var(--spacing-xl) 0;
-    background: var(--color-bg-dark);
+    background: black;
 }
 
 .mvv-grid {
@@ -1572,6 +1650,54 @@ body {
 }
 
 /* === ANIMATIONS === */
+@keyframes gradientShift {
+
+    0%,
+    100% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        left: -100%;
+    }
+
+    100% {
+        left: 100%;
+    }
+}
+
+@keyframes borderGlow {
+
+    0%,
+    100% {
+        opacity: 0.3;
+    }
+
+    50% {
+        opacity: 0.8;
+    }
+}
+
+@keyframes floatCircle {
+
+    0%,
+    100% {
+        transform: translateY(0) scale(1);
+        opacity: 0.3;
+    }
+
+    50% {
+        transform: translateY(20px) scale(1.1);
+        opacity: 0.6;
+    }
+}
+
 @keyframes fadeInUp {
     from {
         opacity: 0;
