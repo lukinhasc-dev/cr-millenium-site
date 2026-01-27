@@ -365,27 +365,6 @@ if (document.getElementById('clientsCarousel')) {
     new ClientsCarousel();
 }
 
-// === FORM SUBMISSION ===
-const contactForm = document.getElementById('contactForm');
-
-if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-
-        // Get form data
-        const formData = new FormData(contactForm);
-        const data = Object.fromEntries(formData);
-
-        // Here you would normally send the data to a server
-        console.log('Form submitted:', data);
-
-        // Show success message
-        alert('Mensagem enviada com sucesso! Entraremos em contato em breve.');
-
-        // Reset form
-        contactForm.reset();
-    });
-}
 
 // === ACTIVE NAV LINK ===
 const updateActiveNavLink = () => {
@@ -582,3 +561,41 @@ faqItems.forEach(item => {
 });
 
 console.log('CR Millenium - FAQ Accordion loaded! ');
+
+
+const form = document.getElementById('form');
+const submitBtn = form.querySelector('button[type="submit"]');
+
+form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(form);
+    formData.append("access_key", "a8160154-a286-46e1-848e-7365dad5ab9c");
+
+    const originalText = submitBtn.textContent;
+
+    submitBtn.textContent = "Sending...";
+    submitBtn.disabled = true;
+
+    try {
+        const response = await fetch("https://api.web3forms.com/submit", {
+            method: "POST",
+            body: formData
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+            alert("Success! Your message has been sent.");
+            form.reset();
+        } else {
+            alert("Error: " + data.message);
+        }
+
+    } catch (error) {
+        alert("Something went wrong. Please try again.");
+    } finally {
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+    }
+});
