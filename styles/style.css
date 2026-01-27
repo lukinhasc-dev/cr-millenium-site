@@ -2732,6 +2732,38 @@ body {
     transform: rotate(360deg) scale(1.2) !important;
 }
 
+/* === MVV MOBILE SPECIFIC === */
+@media (max-width: 768px) {
+
+    /* Desabilitar hover completamente no mobile */
+    .mvv-item:hover .mvv-front {
+        transform: translateY(0) !important;
+    }
+
+    .mvv-item:hover {
+        border-color: var(--color-border) !important;
+        box-shadow: none !important;
+    }
+
+    .mvv-item:hover .mvv-icon-large {
+        transform: rotate(0deg) scale(1) !important;
+    }
+
+    /* Ativar animação quando clicado - classe mvv-mobile-active */
+    .mvv-item.mvv-mobile-active .mvv-front {
+        transform: translateY(-100%) !important;
+    }
+
+    .mvv-item.mvv-mobile-active {
+        border-color: var(--color-primary) !important;
+        box-shadow: 0 20px 40px rgba(220, 38, 38, 0.3) !important;
+    }
+
+    .mvv-item.mvv-mobile-active .mvv-icon-large {
+        transform: rotate(360deg) scale(1.2) !important;
+    }
+}
+
 .mvv-icon-large i {
     font-size: 3rem;
     color: var(--color-primary);
@@ -3355,6 +3387,28 @@ body {
     /* Contact section */
     .contact-content {
         grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+
+    .contact-info-compact {
+        gap: var(--spacing-sm);
+    }
+
+    .contact-card-compact {
+        padding: 1rem;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .contact-card-compact p {
+        word-break: break-word;
+        overflow-wrap: break-word;
+    }
+
+    .contact-form-wrapper {
+        padding: 1.5rem 1rem;
+        width: 100%;
+        box-sizing: border-box;
     }
 
     .form-row {

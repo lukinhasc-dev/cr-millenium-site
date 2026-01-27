@@ -599,3 +599,56 @@ form.addEventListener('submit', async (e) => {
         submitBtn.disabled = false;
     }
 });
+
+// === MVV MOBILE TOUCH HANDLER ===
+// Solução para fazer o MVV funcionar no mobile
+(function () {
+    // Detectar se é mobile
+    function isMobile() {
+        return window.innerWidth <= 768;
+    }
+
+    // Inicializar quando DOM estiver pronto
+    function initMVVMobile() {
+        if (!isMobile()) {
+            console.log('Desktop detected - MVV mobile disabled');
+            return;
+        }
+
+        const mvvItems = document.querySelectorAll('.mvv-item');
+
+        if (mvvItems.length === 0) {
+            console.warn('MVV items not found');
+            return;
+        }
+
+        // Adicionar listeners em cada item
+        mvvItems.forEach(item => {
+            item.addEventListener('click', function (e) {
+                e.preventDefault();
+                e.stopPropagation();
+
+                const isActive = this.classList.contains('mvv-mobile-active');
+
+                // Fechar todos
+                mvvItems.forEach(otherItem => {
+                    otherItem.classList.remove('mvv-mobile-active');
+                });
+
+                // Toggle no clicado
+                if (!isActive) {
+                    this.classList.add('mvv-mobile-active');
+                }
+            });
+        });
+
+        console.log('✅ MVV Mobile: ' + mvvItems.length + ' items initialized');
+    }
+
+    // Executar quando carregar
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initMVVMobile);
+    } else {
+        initMVVMobile();
+    }
+})();
