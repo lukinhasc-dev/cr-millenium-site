@@ -33,11 +33,35 @@
     --transition-fast: all 0.2s ease;
 }
 
-/* === RESET & BASE === */
+/* === GLOBAL STYLES === */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+/* Desabilitar cor azul automática de telefones no mobile */
+a[href^="tel"] {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* Prevenir detecção automática de telefone de aplicar estilos */
+.footer-contact p,
+.contact-info p,
+.contact-card-compact p {
+    color: var(--color-text-secondary) !important;
+}
+
+/* Mobile Safari detecta números e aplica azul - desabilitar */
+@media (max-width: 768px) {
+
+    a[href^="tel"],
+    a[x-apple-data-detectors] {
+        color: var(--color-text-secondary) !important;
+        text-decoration: none !important;
+        pointer-events: auto;
+    }
 }
 
 html {
@@ -76,6 +100,36 @@ body {
     background: rgba(0, 0, 0, 0.98);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
     border-bottom: 1px solid rgba(220, 38, 38, 0.4);
+}
+
+/* Linha vermelha animada no header */
+.main-header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-primary), rgba(220, 38, 38, 0.5));
+    animation: headerLine 3s ease-in-out infinite;
+    box-shadow: 0 0 10px rgba(220, 38, 38, 0.8);
+}
+
+@keyframes headerLine {
+    0% {
+        width: 0;
+        left: 0;
+    }
+
+    50% {
+        width: 100%;
+        left: 0;
+    }
+
+    100% {
+        width: 0;
+        left: 100%;
+    }
 }
 
 .header-decorations {
@@ -265,6 +319,7 @@ body {
     font-weight: 700;
     line-height: 1.1;
     margin-bottom: var(--spacing-md);
+    display: block;
 }
 
 .title-line {
@@ -282,6 +337,7 @@ body {
     color: var(--color-text-secondary);
     margin-bottom: var(--spacing-md);
     max-width: 500px;
+    display: block;
 }
 
 .hero-buttons {
@@ -347,6 +403,14 @@ body {
     border-color: var(--color-primary);
     background: rgba(220, 38, 38, 0.1);
 }
+
+/* Garantir que o texto dos botões nunca seja truncado */
+.btn span {
+    white-space: nowrap;
+    overflow: visible;
+    text-overflow: clip;
+}
+
 
 .hero-image-wrapper {
     animation: fadeInRight 0.8s ease-out 0.2s both;
@@ -639,6 +703,31 @@ body {
     transform: translateY(-8px) scale(1.02);
     box-shadow: 0 20px 40px rgba(220, 38, 38, 0.3);
 }
+
+/* Desabilitar hover em dispositivos touch */
+.quality-card-enhanced.touch-device:hover {
+    border-color: var(--color-border);
+    transform: translateY(0) scale(1);
+    box-shadow: none;
+}
+
+.quality-card-enhanced.touch-device:hover::before {
+    left: -100%;
+}
+
+/* Suporte para touch/click no mobile - MAIOR ESPECIFICIDADE */
+.quality-card-enhanced.touch-device.quality-active,
+.quality-card-enhanced.quality-active {
+    border-color: var(--color-primary) !important;
+    transform: translateY(-8px) scale(1.02) !important;
+    box-shadow: 0 20px 40px rgba(220, 38, 38, 0.3) !important;
+}
+
+.quality-card-enhanced.touch-device.quality-active::before,
+.quality-card-enhanced.quality-active::before {
+    left: 100% !important;
+}
+
 
 .quality-number {
     position: absolute;
@@ -1560,6 +1649,13 @@ body {
     justify-content: center;
 }
 
+/* Input de email ajustado para não cortar */
+.form-group input[type="email"] {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
 /* === FOOTER === */
 .site-footer {
     background: var(--color-bg-darker);
@@ -2157,7 +2253,7 @@ body {
 .hero-content-centered {
     position: relative;
     z-index: 1;
-    text-align: center;
+    text-align: left;
     max-width: 900px;
     margin: 0 auto;
 }
@@ -2165,16 +2261,20 @@ body {
 .hero-content-centered .hero-title {
     font-size: 5rem;
     margin-bottom: var(--spacing-md);
+    display: block !important;
+    width: 100%;
 }
 
 .hero-content-centered .hero-description {
     font-size: 1.5rem;
     max-width: 700px;
-    margin: 0 auto var(--spacing-md);
+    margin: 0 0 var(--spacing-md) 0;
+    display: block !important;
+    width: 100%;
 }
 
 .hero-content-centered .hero-buttons {
-    justify-content: center;
+    justify-content: flex-start;
 }
 
 /* === FIXED CAROUSEL BUTTONS FOR PC === */
@@ -2584,6 +2684,28 @@ body {
     transform: translateY(-100%);
 }
 
+/* Desabilitar hover em dispositivos touch */
+.mvv-item.touch-device:hover .mvv-front {
+    transform: translateY(0);
+}
+
+.mvv-item.touch-device:hover {
+    border-color: var(--color-border);
+    box-shadow: none;
+}
+
+/* Suporte para touch/click no mobile - MAIOR ESPECIFICIDADE */
+.mvv-item.touch-device.mvv-active .mvv-front,
+.mvv-item.mvv-active .mvv-front {
+    transform: translateY(-100%) !important;
+}
+
+.mvv-item.touch-device.mvv-active,
+.mvv-item.mvv-active {
+    border-color: var(--color-primary) !important;
+    box-shadow: 0 20px 40px rgba(220, 38, 38, 0.3) !important;
+}
+
 .mvv-icon-large {
     width: 100px;
     height: 100px;
@@ -2598,6 +2720,16 @@ body {
 
 .mvv-item:hover .mvv-icon-large {
     transform: rotate(360deg) scale(1.2);
+}
+
+/* Desabilitar hover do ícone em touch devices */
+.mvv-item.touch-device:hover .mvv-icon-large {
+    transform: rotate(0deg) scale(1);
+}
+
+.mvv-item.touch-device.mvv-active .mvv-icon-large,
+.mvv-item.mvv-active .mvv-icon-large {
+    transform: rotate(360deg) scale(1.2) !important;
 }
 
 .mvv-icon-large i {
@@ -3063,15 +3195,11 @@ body {
     }
 
     .hero-buttons .btn::after {
-        content: 'Or�amento';
+        content: 'Orçamento';
     }
 
     .btn-secondary::after {
-        content: 'Servi�os' !important;
-    }
-
-    .btn-primary::after {
-        content: 'Or�amento';
+        content: 'Serviços' !important;
     }
 
     /* Section titles */
