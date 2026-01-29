@@ -3230,10 +3230,6 @@ body {
         content: 'Orçamento';
     }
 
-    .btn-secondary::after {
-        content: 'Serviços' !important;
-    }
-
     /* Section titles */
     .section-title {
         font-size: 1.75rem;
