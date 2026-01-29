@@ -1,0 +1,93 @@
+/* Estilos para o novo Hero Title com spans */
+.hero-title-new {
+    font-family: 'Calibri', 'Arial', 'Helvetica Neue', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: var(--spacing-md);
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+.hero-title-line-1 {
+    display: block;
+    margin-bottom: 0.3em;
+    white-space: nowrap;
+    animation: slideInRight 1s ease-out;
+}
+
+.hero-title-line-2 {
+    display: block;
+    white-space: nowrap;
+    animation: slideInRight 1.2s ease-out;
+}
+
+.hero-title-precision {
+    color: #ffffff;
+    font-weight: 800;
+    text-shadow:
+        3px 3px 10px rgba(0, 0, 0, 0.8),
+        0 0 30px rgba(255, 255, 255, 0.2),
+        0 0 50px rgba(255, 255, 255, 0.1);
+}
+
+.hero-title-and {
+    color: #b0b0b0;
+    font-weight: 400;
+    letter-spacing: 2px;
+}
+
+.hero-title-excellence {
+    color: #ff0000;
+    font-weight: 800;
+    text-shadow:
+        3px 3px 10px rgba(0, 0, 0, 0.8),
+        0 0 40px rgba(255, 0, 0, 0.5),
+        0 0 70px rgba(255, 0, 0, 0.3);
+}
+
+.hero-title-normal {
+    color: #f5f5f5;
+    font-weight: 600;
+    text-shadow:
+        3px 3px 10px rgba(0, 0, 0, 0.8),
+        0 0 20px rgba(255, 255, 255, 0.15);
+    letter-spacing: 4px;
+}
+
+/* Animação de deslize para a direita */
+@keyframes slideInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .hero-title-new {
+        font-size: 2.5rem;
+        letter-spacing: 2px;
+    }
+
+    .hero-title-normal {
+        letter-spacing: 3px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title-new {
+        font-size: 2rem;
+        letter-spacing: 1px;
+    }
+
+    .hero-title-normal {
+        letter-spacing: 2px;
+    }
+}

@@ -10,7 +10,13 @@
     <meta name="format-detection" content="telephone=no">
     <title>Grupo CR Millenium & Filhos</title>
     <link rel="icon" href="/img/Logo CR Atualizado Linkedin.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/hero-title.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 
@@ -55,9 +61,16 @@
         </div>
         <div class="container">
             <div class="hero-content-centered">
-                <h1 class="hero-title animate-slide-in">
-                    Precisão e Excelência em Usinagem
-                </h1>
+                <div class="hero-title-new animate-slide-in">
+                    <div class="hero-title-line-1">
+                        <span class="hero-title-precision">Precisão</span>
+                        <span class="hero-title-and"> e </span>
+                        <span class="hero-title-excellence">Excelência</span>
+                    </div>
+                    <div class="hero-title-line-2">
+                        <span class="hero-title-normal">em Usinagem</span>
+                    </div>
+                </div>
                 <p class="hero-description animate-fade-in">
                     Desenvolvimento de peças de alta precisão com tecnologia de ponta e expertise incomparável
                 </p>
@@ -92,13 +105,13 @@
                         combinando tecnologia de ponta com a expertise de profissionais altamente qualificados.
                     </p>
                     <p class="about-description">
-                        Com mais de 40 anos de experiência no mercado, nossa empresa se consolidou como parceira
+                        Com quase 40 anos de experiência no mercado, nossa empresa se consolidou como parceira
                         estratégica de indústrias nacionais e internacionais, oferecendo soluções personalizadas
                         em usinagem de precisão, desenvolvimento de projetos especiais e manutenção industrial.
                     </p>
                     <div class="about-stats-inline">
                         <div class="stat-inline">
-                            <span class="stat-number">40+</span>
+                            <span class="stat-number">35+</span>
                             <span class="stat-label">Anos de Experiência</span>
                         </div>
                         <div class="stat-inline">
@@ -407,6 +420,24 @@
                         <img src="/img/SuperVia - Logo At.png" alt="Supervia">
                     </div>
                 </div>
+
+                <div class="client-card fade-in-element" data-delay="400">
+                    <div class="client-card-inner">
+                        <img src="/img/Motiva - Cliente.jpg" alt="Motiva">
+                    </div>
+                </div>
+
+                <div class="client-card fade-in-element" data-delay="400">
+                    <div class="client-card-inner">
+                        <img src="/img/Trensurb - Cliente.png" alt="Trensurb">
+                    </div>
+                </div>
+
+                <div class="client-card fade-in-element" data-delay="400">
+                    <div class="client-card-inner">
+                        <img src="/img/ITW - Cliente.jpg" alt="ITW">
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -538,15 +569,15 @@
 
                 <div class="faq-item fade-in-element" data-delay="300">
                     <button class="faq-question">
-                        <span>Fazem projetos personalizados a partir de desenhos t́cnicos?</span>
+                        <span>Fazem projetos personalizados a partir de desenhos técnicos?</span>
                         <i class="fas fa-chevron-down"></i>
                     </button>
                     <div class="faq-answer">
                         <p>
-                            Sim! Nossa equipe de engenharia trabalha com desenhos t́cnicos 2D e 3D.
+                            Sim! Nossa equipe de engenharia trabalha com desenhos técnicos 2D e 3D.
                             Você pode nos enviar arquivos em diversos formatos (DWG, PDF, STEP, IGES, etc.)
-                            e nossa equipe analisa a viabilidade t́cnica e fornece um orçamento detalhado.
-                            Tamb́em oferecemos consultoria para otimização do projeto.
+                            e nossa equipe analisa a viabilidade técnica e fornece um orçamento detalhado.
+                            Também oferecemos consultoria para otimização do projeto.
                         </p>
                     </div>
                 </div>
@@ -558,10 +589,10 @@
                     </button>
                     <div class="faq-answer">
                         <p>
-                            Trabalhamos com diversos materiais: áos (carbono, inoxid́vel, liga),
-                            alumínio e suas ligas, bronze, latão, cobre, titânio, plásticos de engenharia
-                            (nylon, delrin, PTFE) e outros materiais especiais sob consulta. Nossa equipe
-                            pode ajudar a escolher o material ideal para sua aplicáção.
+                            Trabalhamos com diversos materiais: aços (carbono, inoxidável, liga), alumínio e suas ligas,
+                            bronze, latão, cobre, titânio, plásticos de engenharia (nylon, Delrin, PTFE) e outros
+                            materiais especiais sob consulta. Nossa equipe pode ajudar a escolher o material ideal para
+                            sua aplicação.
                         </p>
                     </div>
                 </div>
@@ -591,7 +622,7 @@
                         <p>
                             É muito simples! Você pode entrar em contato por WhatsApp, e-mail ou
                             preencher nosso formulário de contato. Envie as especificações da peça
-                            (desenho t́cnico, foto, medidas) e a quantidade desejada. Nossa equipe
+                            (desenho técnico, foto, medidas) e a quantidade desejada. Nossa equipe
                             comercial responde em até 24 horas com o orçamento detalhado e prazo de entrega.
                         </p>
                     </div>
@@ -700,10 +731,14 @@
                 <div class="footer-grid">
                     <div class="footer-column">
                         <img src="img/Logo CR Transparente.png" alt="Logo CR" class="footer-logo"
-                            style="width: 150px; padding-bottom: 20px;">
-                        <p class="footer-description">
-                            Excelência em usinagem e desenvolvimento de peças de precisão desde 2008.
-                            Tecnologia, qualidade e compromisso com nossos clientes.
+                            style="width: 150px; padding-bottom: 15px;">
+
+                        <span
+                            style="font-size: 20px; font-weight: 400; color: #434343; align-items: start; display: flex;">CR
+                            Millenium & CR Filhos</span>
+                        <p class="footer-description" style="padding-top: 10px;">
+                            Excelência em usinagem e desenvolvimento de peças de precisão, atuando a quase 40 anos no
+                            mercado.
                         </p>
                         <div class="social-links">
                             <a href="https://www.instagram.com/c.r.millenium/" class="social-link"
@@ -733,8 +768,7 @@
                         <ul class="footer-links">
                             <li><a href="#servicos"><i class="fas fa-angle-right"></i> Usinagem CNC</a></li>
                             <li><a href="#servicos"><i class="fas fa-angle-right"></i> Desenvolvimento de Peças</a></li>
-                            <li><a href="#servicos"><i class="fas fa-angle-right"></i> Usinagem Convencional</a></li>
-                            <li><a href="#servicos"><i class="fas fa-angle-right"></i> Manutenção Industrial</a></li>
+                            <li><a href="#servicos"><i class="fas fa-angle-right"></i> Inspeção de Qualidade</a></li>
                         </ul>
                     </div>
 
@@ -752,6 +786,7 @@
                                 <i class="fas fa-envelope"></i>
                                 <div>
                                     <p>administrativo@grupocrdesenvolvimento.com.br</p>
+                                    <p>ricardo@grupocrdesenvolvimento.com.br</p>
                                 </div>
                             </li>
                             <li>
