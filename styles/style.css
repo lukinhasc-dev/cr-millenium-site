@@ -3947,3 +3947,49 @@ section[id] {
         hyphens: auto;
     }
 }
+
+/* === HERO MEDIA OPTIMIZATION (Mobile Performance) === */
+.hero-static-image {
+    display: none;
+    /* Desktop: Hidden */
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+/* Mobile: Swap video for image */
+@media (max-width: 768px) {
+    .hero-video {
+        display: none !important;
+    }
+
+    .hero-static-image {
+        display: block !important;
+    }
+}
+
+/* === SERVICES MEDIA OPTIMIZATION (Mobile Performance) === */
+.services-static-image {
+    display: none;
+    /* Desktop: Hidden */
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+/* Mobile: Swap video for image */
+@media (max-width: 768px) {
+    .services-video {
+        display: none !important;
+    }
+
+    .services-static-image {
+        display: block !important;
+    }
+}

@@ -537,8 +537,6 @@ const imageObserver = new IntersectionObserver((entries) => {
 const lazyImages = document.querySelectorAll('img[data-src]');
 lazyImages.forEach(img => imageObserver.observe(img));
 
-console.log('CR Millenium - Site loaded successfully! 🔴⚫');
-
 // === FAQ ACCORDION ===
 const faqItems = document.querySelectorAll('.faq-item');
 
@@ -560,45 +558,45 @@ faqItems.forEach(item => {
     });
 });
 
-console.log('CR Millenium - FAQ Accordion loaded! ');
-
 
 const form = document.getElementById('form');
-const submitBtn = form.querySelector('button[type="submit"]');
+if (form) {
+    const submitBtn = form.querySelector('button[type="submit"]');
 
-form.addEventListener('submit', async (e) => {
-    e.preventDefault();
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
 
-    const formData = new FormData(form);
-    formData.append("access_key", "a8160154-a286-46e1-848e-7365dad5ab9c");
+        const formData = new FormData(form);
+        formData.append("access_key", "a8160154-a286-46e1-848e-7365dad5ab9c");
 
-    const originalText = submitBtn.textContent;
+        const originalText = submitBtn.textContent;
 
-    submitBtn.textContent = "Sending...";
-    submitBtn.disabled = true;
+        submitBtn.textContent = "Sending...";
+        submitBtn.disabled = true;
 
-    try {
-        const response = await fetch("https://api.web3forms.com/submit", {
-            method: "POST",
-            body: formData
-        });
+        try {
+            const response = await fetch("https://api.web3forms.com/submit", {
+                method: "POST",
+                body: formData
+            });
 
-        const data = await response.json();
+            const data = await response.json();
 
-        if (response.ok) {
-            alert("Success! Your message has been sent.");
-            form.reset();
-        } else {
-            alert("Error: " + data.message);
+            if (response.ok) {
+                alert("Success! Your message has been sent.");
+                form.reset();
+            } else {
+                alert("Error: " + data.message);
+            }
+
+        } catch (error) {
+            alert("Something went wrong. Please try again.");
+        } finally {
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
         }
-
-    } catch (error) {
-        alert("Something went wrong. Please try again.");
-    } finally {
-        submitBtn.textContent = originalText;
-        submitBtn.disabled = false;
-    }
-});
+    });
+}
 
 // === MVV MOBILE TOUCH HANDLER ===
 // Solução para fazer o MVV funcionar no mobile
@@ -611,7 +609,6 @@ form.addEventListener('submit', async (e) => {
     // Inicializar quando DOM estiver pronto
     function initMVVMobile() {
         if (!isMobile()) {
-            console.log('Desktop detected - MVV mobile disabled');
             return;
         }
 
@@ -642,7 +639,6 @@ form.addEventListener('submit', async (e) => {
             });
         });
 
-        console.log('✅ MVV Mobile: ' + mvvItems.length + ' items initialized');
     }
 
     // Executar quando carregar
