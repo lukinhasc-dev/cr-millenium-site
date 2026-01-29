@@ -3923,3 +3923,27 @@ section[id] {
         font-size: 3rem;
     }
 }
+
+/* === RESPONSIVE EMAIL ADDRESSES === */
+/* Previne emails longos de quebrarem o layout em mobile */
+.legal-block strong,
+.legal-block li strong,
+.legal-block li,
+.legal-block p {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+/* Especialmente para emails em mobile */
+@media (max-width: 768px) {
+
+    .legal-block strong,
+    .legal-block li strong,
+    .legal-block li,
+    .legal-block p {
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        word-break: break-word;
+        hyphens: auto;
+    }
+}
