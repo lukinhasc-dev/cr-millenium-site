@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Sitemap do site
+Sitemap: https://www.grupocrdesenvolvimento.com.br/sitemap.xml
