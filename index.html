@@ -7,20 +7,36 @@
     <meta name="description"
         content="Grupo CR Millenium & Filhos - Excelência em Usinagem e Desenvolvimento de Peças de Precisão">
     <meta name="theme-color" content="#FF0000">
-    <meta name="mobile-web-app-capable" content="yes">
     <meta name="format-detection" content="telephone=no">
     <title>Grupo CR Millenium & Filhos</title>
-    <link rel="icon" href="img/Logo CR Atualizado Linkedin.png" type="image/png">
-    <link rel="shortcut icon" href="img/Logo CR Atualizado Linkedin.png" type="image/png">
+
+    <!-- Favicon -->
+    <link rel="icon" href="img/Logo CR Atualizado Linkedin.webp" type="image/webp">
+
+    <!-- Preconnect para CDNs críticos -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400&display=swap"
-        rel="stylesheet">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+    <!-- CSS crítico inline ou preload -->
     <link rel="stylesheet" href="styles/style.css">
-    <link rel="stylesheet" href="styles/hero-title.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="canonical" href="https://www.grupocrdesenvolvimento.com.br/" />
+
+    <!-- Google Fonts otimizado -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap" as="style"
+        onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap">
+    </noscript>
+
+    <!-- Font Awesome -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style"
+        onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    </noscript>
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.grupocrdesenvolvimento.com.br/">
 </head>
 
 <body>
@@ -29,7 +45,8 @@
         <div class="container">
             <div class="header-content">
                 <div class="logo">
-                    <img src="img/Logo CR Transparente.png" alt="CR Millenium" class="logo-image">
+                    <img src="img/Logo CR Transparente.webp" alt="CR Millenium" class="logo-image" width="150"
+                        height="50" loading="eager">
                 </div>
                 <nav class="main-nav" id="mainNav">
                     <a href="#inicio" class="nav-link">Início</a>
@@ -52,11 +69,12 @@
     <section class="hero-section" id="inicio">
         <div class="hero-background">
             <div class="hero-bg-image">
-                <!-- Imagem estática para Mobile (Performance) -->
-                <img src="img/Trem.png" alt="CR Millenium Background" class="hero-static-image">
+                <!-- Imagem estática para Mobile (Performance) - LCP otimizado -->
+                <img src="img/Trem.webp" alt="CR Millenium Background" class="hero-static-image" fetchpriority="high"
+                    width="1920" height="1080" loading="eager">
 
-                <!-- Vídeo de fundo para Desktop -->
-                <video class="hero-video" autoplay muted loop playsinline preload="auto">
+                <!-- Vídeo de fundo para Desktop - Otimizado para LCP -->
+                <video class="hero-video" autoplay muted loop playsinline preload="none" poster="img/Trem.webp">
                     <source src="videos/V%C3%ADdeo%203.mp4" type="video/mp4">
                     Seu navegador não suporta vídeos HTML5.
                 </video>
@@ -133,7 +151,7 @@
                 </div>
                 <div class="about-image fade-in-element slide-in-right">
                     <div class="about-image-placeholder">
-                        <img src="img/Polo CR.png" alt="Foto da Polo CR">
+                        <img src="img/Polo CR.webp" alt="Foto da Polo CR" loading="lazy" width="600" height="600">
                     </div>
                 </div>
             </div>
@@ -306,10 +324,11 @@
         <!-- Vídeo de fundo -->
         <div class="services-background">
             <!-- Imagem estática para Mobile (Performance) -->
-            <img src="img/Trem 2.png" alt="Services Background" class="services-static-image">
+            <img src="img/Trem 2.webp" alt="Services Background" class="services-static-image" loading="lazy"
+                width="1920" height="1080">
 
-            <!-- Vídeo de fundo para Desktop -->
-            <video class="services-video" autoplay muted loop playsinline preload="auto">
+            <!-- Vídeo de fundo para Desktop - Otimizado -->
+            <video class="services-video" autoplay muted loop playsinline preload="none" poster="img/Trem 2.webp">
                 <source src="videos/V%C3%ADdeo%201.mp4" type="video/mp4">
                 Seu navegador não suporta vídeos HTML5.
             </video>
@@ -342,7 +361,7 @@
                 </div>
                 <div class="service-image-wrapper">
                     <div class="service-image-placeholder">
-                        <img src="img/Maquina 1.png" alt="Grupo CR Maquina">
+                        <img src="img/Maquina 1.webp" alt="Grupo CR Maquina" loading="lazy" width="800" height="600">
                     </div>
                 </div>
             </div>
@@ -364,7 +383,7 @@
                 </div>
                 <div class="service-image-wrapper">
                     <div class="service-image-placeholder">
-                        <img src="img/Inspeção.jpg" alt="Grupo CR Inspecao">
+                        <img src="img/Inspeção.webp" alt="Grupo CR Inspecao" loading="lazy" width="800" height="600">
                         <p>Foto de operações de comércio</p>
                     </div>
                 </div>
@@ -387,7 +406,8 @@
                 </div>
                 <div class="service-image-wrapper">
                     <div class="service-image-placeholder">
-                        <img src="img/Qualidade do Produto.jpg" alt="Grupo CR Desenvolvimento">
+                        <img src="img/Qualidade do Produto.webp" alt="Grupo CR Desenvolvimento" loading="lazy"
+                            width="800" height="600">
                     </div>
                 </div>
             </div>
@@ -407,27 +427,27 @@
             <div class="clients-grid">
                 <div class="client-card fade-in-element" data-delay="0">
                     <div class="client-card-inner">
-                        <img src="img/Loara - Cliente.png" alt="Loara">
+                        <img src="img/Loara - Cliente.webp" alt="Loara" loading="lazy" width="400" height="300">
                     </div>
                 </div>
                 <div class="client-card fade-in-element" data-delay="100">
                     <div class="client-card-inner">
-                        <img src="img/MetroRio - Cliente.png" alt="MetroRio">
+                        <img src="img/MetroRio - Cliente.webp" alt="MetroRio" loading="lazy" width="400" height="300">
                     </div>
                 </div>
                 <div class="client-card fade-in-element" data-delay="200">
                     <div class="client-card-inner">
-                        <img src="img/MetroSP - Cliente.jpg" alt="MetroSP">
+                        <img src="img/MetroSP - Cliente.webp" alt="MetroSP" loading="lazy" width="400" height="300">
                     </div>
                 </div>
                 <div class="client-card fade-in-element" data-delay="300">
                     <div class="client-card-inner">
-                        <img src="img/CPTM.png" alt="CPTM">
+                        <img src="img/CPTM.webp" alt="CPTM" loading="lazy" width="400" height="300">
                     </div>
                 </div>
                 <div class="client-card fade-in-element" data-delay="400">
                     <div class="client-card-inner">
-                        <img src="img/SuperVia - Logo At.png" alt="Supervia">
+                        <img src="img/SuperVia - Logo At.webp" alt="Supervia" loading="lazy" width="400" height="300">
                     </div>
                 </div>
             </div>
@@ -716,8 +736,8 @@
             <div class="container">
                 <div class="footer-grid">
                     <div class="footer-column">
-                        <img src="img/Logo CR Transparente.png" alt="Logo CR" class="footer-logo"
-                            style="width: 150px; padding-bottom: 15px;">
+                        <img src="img/Logo CR Transparente.webp" alt="Logo CR" class="footer-logo" type="image/webp"
+                            style="padding-bottom: 15px;" loading="lazy" width="90" height="60">
 
                         <span
                             style="font-size: 20px; font-weight: 400; color: #434343; align-items: start; display: flex;">CR
@@ -811,8 +831,9 @@
         <i class="fas fa-arrow-up"></i>
     </button>
 
-    <script src="scripts/script.js"></script>
-    <script src="scripts/mvv-mobile-fix.js"></script>
+    <!-- Scripts com defer para não bloquear renderização -->
+    <script src="scripts/script.js" defer></script>
+    <script src="scripts/mvv-mobile-fix.js" defer></script>
 </body>
 
 </html>
