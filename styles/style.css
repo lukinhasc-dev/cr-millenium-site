@@ -2619,19 +2619,6 @@ body {
         flex-direction: column
     }
 
-    .mvv-item:hover .mvv-front {
-        transform: translateY(0) !important
-    }
-
-    .mvv-item:hover {
-        border-color: var(--color-border) !important;
-        box-shadow: none !important
-    }
-
-    .mvv-item:hover .mvv-icon-large {
-        transform: rotate(0) scale(1) !important
-    }
-
     .mvv-item.mvv-mobile-active .mvv-front {
         transform: translateY(-100%) !important
     }
@@ -2643,6 +2630,11 @@ body {
 
     .mvv-item.mvv-mobile-active .mvv-icon-large {
         transform: rotate(360deg) scale(1.2) !important
+    }
+
+    .mvv-item.mvv-mobile-active .mvv-back {
+        opacity: 1 !important;
+        visibility: visible !important
     }
 
     .intro-content h3,
@@ -2711,6 +2703,23 @@ body {
     visibility: hidden;
     transition: opacity .3s, visibility .3s
 }
+
+.mvv-item:hover .mvv-back {
+    opacity: 1;
+    visibility: visible
+}
+
+.mvv-item.touch-device:hover .mvv-back {
+    opacity: 0;
+    visibility: hidden
+}
+
+.mvv-item.mvv-active .mvv-back,
+.mvv-item.touch-device.mvv-active .mvv-back {
+    opacity: 1 !important;
+    visibility: visible !important
+}
+
 
 .mvv-section,
 .qualities-section {

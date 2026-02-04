@@ -1,21 +1,55 @@
+// MVV Mobile Touch Handler - Replicates desktop hover behavior for mobile
 window.addEventListener("load", function () {
-    let e = document.querySelectorAll(".mvv-item");
-    if (0 === e.length) return;
-    let t = window.innerWidth;
-    t <= 768 && e.forEach(function (t, n) {
-        let i = 0, c = 0, s = !1;
-        t.addEventListener("touchstart", function e(t) {
-            s = !0, i = t.touches[0].clientY, c = t.touches[0].clientX
-        }, { passive: !0 }), t.addEventListener("touchend", function n(a) {
-            if (!s) return;
-            s = !1;
-            let l = a.changedTouches[0].clientY,
-                o = a.changedTouches[0].clientX,
-                v = Math.abs(l - i),
-                r = Math.abs(o - c);
-            if (v > 10 || r > 10) return;
-            let u = t.classList.contains("mvv-mobile-active");
-            e.forEach(function (e, t) { e.classList.remove("mvv-mobile-active") }), u || t.classList.add("mvv-mobile-active")
-        }, { passive: !0 })
-    })
+    const mvvItems = document.querySelectorAll(".mvv-item");
+
+    // Exit if no MVV items found
+    if (mvvItems.length === 0) return;
+
+    const windowWidth = window.innerWidth;
+
+    // Only apply touch handling on mobile devices (≤768px)
+    if (windowWidth <= 768) {
+        mvvItems.forEach(function (item) {
+            let startY = 0;
+            let startX = 0;
+            let isTouching = false;
+
+            // Track touch start position
+            item.addEventListener("touchstart", function (e) {
+                isTouching = true;
+                startY = e.touches[0].clientY;
+                startX = e.touches[0].clientX;
+            }, { passive: true });
+
+            // Handle touch end - toggle active state
+            item.addEventListener("touchend", function (e) {
+                if (!isTouching) return;
+                isTouching = false;
+
+                // Get end position
+                const endY = e.changedTouches[0].clientY;
+                const endX = e.changedTouches[0].clientX;
+
+                // Calculate movement distance
+                const deltaY = Math.abs(endY - startY);
+                const deltaX = Math.abs(endX - startX);
+
+                // If there was significant movement, it's a scroll/swipe, not a tap
+                if (deltaY > 10 || deltaX > 10) return;
+
+                // It's a tap - toggle the active state
+                const isActive = item.classList.contains("mvv-mobile-active");
+
+                // Remove active class from all items
+                mvvItems.forEach(function (mvvItem) {
+                    mvvItem.classList.remove("mvv-mobile-active");
+                });
+
+                // If this item wasn't active, make it active
+                if (!isActive) {
+                    item.classList.add("mvv-mobile-active");
+                }
+            }, { passive: true });
+        });
+    }
 });
